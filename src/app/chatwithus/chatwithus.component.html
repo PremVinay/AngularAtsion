@@ -1,0 +1,16 @@
+<!-- Floating WhatsApp-style Chat Button -->
+<button class="chat-btn" (click)="openModal()">💬 Chat with us</button>
+
+<!-- Modal Form -->
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Send us a message</h2>
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <input type="text" name="name" [(ngModel)]="formData.name" placeholder="Name" required />
+      <input type="email" name="email" [(ngModel)]="formData.email" placeholder="Email" required />
+      <textarea name="message" [(ngModel)]="formData.message" placeholder="Your message..." rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
